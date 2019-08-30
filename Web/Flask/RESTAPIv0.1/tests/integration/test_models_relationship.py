@@ -1,4 +1,4 @@
-from tests.resources import *
+from tests.conftest import *
 
 
 def test_relationship(store, item, get_app_context):

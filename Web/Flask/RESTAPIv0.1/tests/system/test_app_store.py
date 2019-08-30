@@ -1,5 +1,5 @@
 import json
-from tests.resources import *
+from tests.conftest import *
 
 
 def test_create_store(get_app_context, get_app_client):

@@ -1,10 +1,10 @@
-from tests.resources import *
 import json
+from tests.conftest import *
 
 
 def test_create_item(get_app_context, get_app_client):
     with get_app_client() as client:
-        with get_app_context() as ctx:
+        with get_app_context():
             StoreModel(storename).save_to_db()
             resp = client.post(f'/item/{name}',
                                data={'price': price, 'store_id': store_id})
@@ -16,7 +16,7 @@ def test_create_item(get_app_context, get_app_client):
 
 def test_create_duplicate_item(get_app_context, get_app_client):
     with get_app_client() as client:
-        with get_app_context() as ctx:
+        with get_app_context():
             StoreModel(storename).save_to_db()
             client.post(f'/item/{name}',
                         data={'price': price, 'store_id': store_id})
